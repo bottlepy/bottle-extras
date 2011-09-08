@@ -22,8 +22,8 @@ Install with one of the following commands::
 
 or download the latest version from github::
 
-    $ git clone git://github.com/defnull/bottle.git
-    $ cd bottle/plugins/sqlite
+    $ git clone git://github.com/bottlepy/bottle-extras.git
+    $ cd bottle-extras/sqlite
     $ python setup.py install
 
 Usage
