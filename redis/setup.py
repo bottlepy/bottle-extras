@@ -23,7 +23,7 @@ setup(
     ],
     requires = [
         'bottle (>=0.9)',
-		'redis'
+        'redis'
     ],
     classifiers = [
         'Environment :: Web Environment',

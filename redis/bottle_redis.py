@@ -16,13 +16,13 @@ class RedisPlugin(object):
             if other.keyword == self.keyword:
                 raise PluginError("Found another redis plugin with "\
                         "conflicting settings (non-unique keyword).")
-                
+
     def apply(self,callback,context):
         conf = context['config'].get('redis') or {}
         database = conf.get('rdb',self.database)
         host = conf.get('host',self.host)
         port = conf.get('port',self.port)
-		keyword = conf.get('keyword',self.keyword)
+        keyword = conf.get('keyword',self.keyword)
 
         args = inspect.getargspec(context['callback'])[0]
         if keyword not in args:
