@@ -46,12 +46,6 @@ argument::
 
 Routes that do not expect a ``rdb`` keyword argument are not affected.
 
-The connection handle is configured so that :class:`sqlite3.Row` objects can be
-accessed both by index (like tuples) and case-insensitively by name. At the end of
-the request cycle, outstanding transactions are committed and the connection is
-closed automatically. If an error occurs, any changes to the database since the
-last commit are rolled back to keep the database in a consistent state.
-
 Configuration
 =============
 
