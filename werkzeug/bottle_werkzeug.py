@@ -74,7 +74,7 @@ class WerkzeugPlugin(object):
     def apply(self, callback, context):
         def wrapper(*a, **ka):
             environ = bottle.request.environ
-            bottle.local.werkzueg_request = self.request_class(environ)
+            bottle.local.werkzeug_request = self.request_class(environ)
             try:
                 rv = callback(*a, **ka)
             except werkzeug.exceptions.HTTPException, e:
@@ -88,7 +88,7 @@ class WerkzeugPlugin(object):
     def request(self):
         ''' Return a local proxy to the current :class:`werkzeug.Request`
             instance.'''
-        return werkzeug.LocalProxy(lambda: bottle.local.werkzueg_request)
+        return werkzeug.LocalProxy(lambda: bottle.local.werkzeug_request)
     
     def __getattr__(self, name):
         ''' Convenient access to werkzeug module contents. '''
