@@ -20,7 +20,7 @@ Install with one of the following commands::
 
 or download the latest version from github::
 
-    $ git clone git://github.com/sc68cal/bottle-extras.git
+    $ git clone git://github.com/bottlepy/bottle-extras.git
     $ cd bottle-extras/redis
     $ python setup.py install
 
