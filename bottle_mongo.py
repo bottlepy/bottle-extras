@@ -9,9 +9,11 @@ import inspect
 class MongoPlugin(object):
     """
     Mongo Plugin for Bottle
-    Creates a mongo database 
+    Connect to a mongodb instance, and  add a DB in a Bottle callback
+    Sample : 
+    
     app = bottle.Bottle()
-    plugin = bottle.ext.mongo.MongoPlugin(uri="...", json_mongo=True)
+    plugin = bottle.ext.mongo.MongoPlugin(uri="...", db="mydb", json_mongo=True)
     app.install(plugin)
 
     @app.route('/show/:item')
@@ -26,18 +28,23 @@ class MongoPlugin(object):
         "Retrieve the mongo instance from the environment"
         if self.mongo_db: 
             return self.mongo_db
-        connection = Connection(self.uri)
-        ## Some bug in the driver requires to reauthenticate
-        for dbname,(login,p) in connection._Connection__auth_credentials.iteritems():
-            db = connection[dbname]
-            db.authenticate(login,p)
-            self.mongo_db = db
-            return db
+        connection = Connection(self.uri, **self.kwargs)
+        self.mongo_db = connection[self.db]
+        return connection[self.db]
 
-    def __init__(self, uri, keyword='mongodb', json_mongo=False):
+    def __init__(self, uri, db, keyword='mongodb', json_mongo=False,  **kwargs):
+        """
+        uri : MongoDB hostname or uri
+        db : Database 
+        json_mongo : Override Bottle serializer using Mongo one
+        keyword : Override parameter name in Bottle function.
+        This constructor any optional parameter of the pymongo.Connection constructor.  
+        """
         self.uri = uri
+        self.db = db 
         self.keyword = keyword
         self.json_mongo = json_mongo
+        self.kwargs = kwargs
         
     def normalize_object(self, obj):
         "Normalize mongo object for json serialization"
@@ -82,4 +89,3 @@ class MongoPlugin(object):
             return rv
         return wrapper
 
-        
