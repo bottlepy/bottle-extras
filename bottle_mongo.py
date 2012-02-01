@@ -67,7 +67,7 @@ class MongoPlugin(object):
         dumps = json_dumps
         if not dumps: return callback
         
-        args = inspect.getargspec(context['callback'])[0]        
+        args = inspect.getargspec(context.callback)[0]        
         
         def wrapper(*a, **ka):
             if self.keyword in args:
