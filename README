@@ -6,3 +6,4 @@ collection. Installing it vith `pip` or `easy_install` also installs:
   * bottle.ext.sqlite
   * bottle.ext.werkzeug
   * bottle.ext.redis
+  * bottle.ext.memcache

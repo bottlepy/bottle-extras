@@ -3,6 +3,8 @@
     collection. Installing it vith `pip` or `easy_install` also installs:
     * bottle.ext.sqlite
     * bottle.ext.werkzeug
+    * bottle.ext.redis
+    * bottle.ext.memcache
 '''
 
 import sys
@@ -15,14 +17,16 @@ setup(
     url = 'http://bottlepy.org/docs/dev/plugins.html',
     description = 'Meta package to install the bottle plugin collection.',
     long_description = __doc__,
-    author = 'Marcel Hellkamp',
-    author_email = 'marc@gsites.de',
+    author = 'Sean M. Collins',
+    author_email = 'sean@coreitpro.com',
     license = 'MIT',
     platforms = 'any',
     requires = [
         'bottle (>=0.9)',
         'bottle_sqlite',
-        'bottle_werkzeug'
+        'bottle_werkzeug',
+        'bottle_redis',
+        'bottle_memcache'
     ],
     classifiers = [
         'Environment :: Web Environment',
