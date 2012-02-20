@@ -16,7 +16,7 @@ except ImportError:
 setup(
     name = 'bottle-memcache',
     version = '0.1',
-    url = 'http://github.com/sc68cal/bottle-extras/',
+    url = 'http://github.com/bottlepy/bottle-extras/',
     description = 'Memcache integration for Bottle.',
     author = 'Jorge Gallegos',
     author_email = 'kad@blegh.net',
