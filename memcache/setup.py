@@ -6,12 +6,13 @@
 
 import sys
 import os
-from distutils.core import setup
+from setuptools import setup
 
-try:
-    from distutils.command.build_py import build_py_2to3 as build_py
-except ImportError:
-    from distutils.command.build_py import build_py
+
+extra = {}
+if sys.version_info >= (3,):
+    extra['use_2to3'] = True
+
 
 setup(
     name = 'bottle-memcache',
@@ -25,9 +26,10 @@ setup(
     py_modules = [
         'bottle_memcache'
     ],
-    requires = [
-        'bottle (>=0.9)',
-        'memcache'
+    install_requires = [
+        'distribute',
+        'bottle>=0.9',
+        'python-memcached',
     ],
     classifiers = [
         'Environment :: Web Environment',
@@ -38,6 +40,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
-    cmdclass = {'build_py': build_py}
+    **extra
 )
 
