@@ -9,9 +9,17 @@ import os
 from setuptools import setup
 
 
-extra = {}
+extra = {
+    'install_requires': [
+        'distribute',
+        'bottle>=0.9',
+    ]
+}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
+    extra['install_requires'].append('python3-memcached')
+else:
+    extra['install_requires'].append('python-memcached')
 
 
 setup(
@@ -25,11 +33,6 @@ setup(
     platforms = 'any',
     py_modules = [
         'bottle_memcache'
-    ],
-    install_requires = [
-        'distribute',
-        'bottle>=0.9',
-        'python-memcached',
     ],
     classifiers = [
         'Environment :: Web Environment',
