@@ -9,6 +9,7 @@ class RedisPlugin(object):
       self.port = port
       self.database = database
       self.keyword = keyword
+      self.redisdb = None
 
     def setup(self,app):
         for other in app.plugins:
@@ -28,9 +29,11 @@ class RedisPlugin(object):
         if keyword not in args:
             return callback
 
+        if self.redisdb is None:
+            self.redisdb = redis.ConnectionPool(host=host, port=port, db=database)
+
         def wrapper(*args,**kwargs):
-            redisdb = redis.Redis(host=host,port=port, db=database)
-            kwargs[self.keyword] = redisdb
+            kwargs[self.keyword] = redis.Redis(connection_pool=self.redisdb)
             rv = callback(*args, **kwargs)
             return rv
         return wrapper
