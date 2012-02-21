@@ -11,7 +11,7 @@ except ImportError:
 
 setup(
     name = 'bottle-redis',
-    version = '0.1',
+    version = '0.2',
     url = 'http://github.com/bottlepy/bottle-extras/',
     description = 'Redis integration for Bottle.',
     author = 'Sean M. Collins',
