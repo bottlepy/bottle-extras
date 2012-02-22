@@ -26,7 +26,8 @@ setup(
         'bottle_sqlite',
         'bottle_werkzeug',
         'bottle_redis',
-        'bottle_memcache'
+        'bottle_memcache',
+        'bottle_sqlalchemy'
     ],
     classifiers = [
         'Environment :: Web Environment',
