@@ -5,6 +5,7 @@
     * bottle.ext.werkzeug
     * bottle.ext.redis
     * bottle.ext.memcache
+    * bottle.ext.sqlalchemy
 '''
 
 import sys
