@@ -8,8 +8,6 @@
     * bottle.ext.sqlalchemy
 '''
 
-import sys
-import os
 from distutils.core import setup
 
 setup(
