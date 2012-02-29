@@ -17,20 +17,15 @@ class RedisPlugin(object):
             if other.keyword == self.keyword:
                 raise PluginError("Found another redis plugin with "\
                         "conflicting settings (non-unique keyword).")
+        if self.redisdb is None:
+            self.redisdb = redis.ConnectionPool(host=self.host, port=self.port, db=self.database)
 
     def apply(self,callback,context):
         conf = context['config'].get('redis') or {}
-        database = conf.get('rdb',self.database)
-        host = conf.get('host',self.host)
-        port = conf.get('port',self.port)
-        keyword = conf.get('keyword',self.keyword)
-
         args = inspect.getargspec(context['callback'])[0]
+        keyword = conf.get('keyword',self.keyword)
         if keyword not in args:
             return callback
-
-        if self.redisdb is None:
-            self.redisdb = redis.ConnectionPool(host=host, port=port, db=database)
 
         def wrapper(*args,**kwargs):
             kwargs[self.keyword] = redis.Redis(connection_pool=self.redisdb)
