@@ -1,6 +1,8 @@
 
 from bottle import PluginError, response
 from pymongo import Connection
+from pymongo.cursor import Cursor
+
 import bson.json_util
 from bottle import JSONPlugin
 from json import dumps as json_dumps
@@ -45,7 +47,7 @@ class MongoPlugin(object):
         self.keyword = keyword
         self.json_mongo = json_mongo
         self.kwargs = kwargs
-        
+
     def normalize_object(self, obj):
         "Normalize mongo object for json serialization"
         if isinstance(obj, dict):
@@ -54,7 +56,9 @@ class MongoPlugin(object):
                 del obj["_id"]
         if isinstance(obj, list):
             for a in obj: 
-                self.normalize_id(a)
+                self.normalize_object(a)
+
+
 
     def setup(self,app):
         for other in app.plugins:
@@ -81,11 +85,15 @@ class MongoPlugin(object):
                 ka[self.keyword] = self.get_mongo()
             rv = callback(*a, **ka)
             if self.json_mongo:  # Override builtin bottle JSON->String serializer  
+                if isinstance(rv, Cursor):
+                    rv = [record for record in rv]
+
                 if isinstance(rv, dict) or isinstance(rv, list):
                     self.normalize_object(rv)
                     json_response = dumps(rv, default=bson.json_util.default)
                     response.content_type = 'application/json'
                     return json_response
+
             return rv
         return wrapper
 
