@@ -5,7 +5,10 @@ from pymongo.cursor import Cursor
 
 import bson.json_util
 from bottle import JSONPlugin
-from json import dumps as json_dumps
+try:
+ from json import dumps as json_dumps
+except ImportError:
+ from simplejson import dumps as json_dumps
 import inspect
 
 class MongoPlugin(object):
