@@ -24,7 +24,7 @@ else:
 
 setup(
     name = 'bottle-memcache',
-    version = '0.1',
+    version = '0.2',
     url = 'http://github.com/bottlepy/bottle-extras/',
     description = 'Memcache integration for Bottle.',
     author = 'Jorge Gallegos',
