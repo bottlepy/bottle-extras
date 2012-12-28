@@ -32,6 +32,7 @@ Once installed to an application, the plugin passes an open
 ``mc`` keyword argument::
 
     import bottle
+    import bottle.ext.memcache
 
     app = bottle.Bottle()
     plugin = bottle.ext.memcache.MemcachePlugin(servers=['localhost:11211'])
