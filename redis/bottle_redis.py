@@ -1,5 +1,6 @@
 import redis
 import inspect
+from bottle import PluginError
 
 class RedisPlugin(object):
     name = 'redis'
