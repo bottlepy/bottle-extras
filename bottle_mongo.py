@@ -67,7 +67,7 @@ class MongoPlugin(object):
         for other in app.plugins:
             if not isinstance(other,MongoPlugin): continue
             if other.keyword == self.keyword:
-                raise PluginError("Found another redis plugin with "\
+                raise PluginError("Found another MongoDB plugin with "\
                         "conflicting settings (non-unique keyword).")
                         
         # Remove builtin JSON Plugin
