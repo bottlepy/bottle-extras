@@ -29,13 +29,13 @@ class MemcachePlugin(object):
 
     def apply(self, callback, context):
         conf = context['config'].get('memcache') or {}
-        servers = conf.get('servers', self.servers)
-        keyword = conf.get('keyword', self.keyword)
-        server_max_value_length = conf.get('server_max_value_length',
+        self.servers = conf.get('servers', self.servers)
+        self.keyword = conf.get('keyword', self.keyword)
+        self.server_max_value_length = conf.get('server_max_value_length',
             self.server_max_value_length)
 
         args = inspect.getargspec(context['callback'])[0]
-        if keyword not in args:
+        if self.keyword not in args:
             return callback
 
         def wrapper(*args, **kwargs):
