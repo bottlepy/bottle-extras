@@ -24,13 +24,14 @@ else:
 
 setup(
     name = 'bottle-memcache',
-    version = '0.2',
+    version = '0.2.1',
     url = 'http://github.com/bottlepy/bottle-extras/',
     description = 'Memcache integration for Bottle.',
     author = 'Jorge Gallegos',
     author_email = 'kad@blegh.net',
     license = 'MIT',
     platforms = 'any',
+    zip_safe = False,
     py_modules = [
         'bottle_memcache'
     ],
