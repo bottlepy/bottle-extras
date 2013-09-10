@@ -9,7 +9,7 @@ except ImportError:
 
 setup(
     name = 'bottle-mongodb',
-    version = '0.2.1.1',
+    version = '0.2.1.2',
     url = 'https://github.com/fdouetteau/bottle-mongodb-plugin',
     description = 'MongoDB integration for Bottle',
     author = 'Florian Douetteau',
