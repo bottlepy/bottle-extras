@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 try:
     from distutils.command.build_py import build_py_2to3 as build_py
