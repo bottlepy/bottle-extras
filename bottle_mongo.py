@@ -68,7 +68,6 @@ class MongoPlugin(object):
     """
 
     api = 2
-    name = "mongo"
 
     def get_mongo(self):
         """Return the mongo connection from the environment."""
@@ -109,6 +108,14 @@ class MongoPlugin(object):
 
         self.keyword = keyword
         self.json_mongo = json_mongo
+        self.mongo_db = None
+        self.name = "mongo:" + keyword
+
+    def __str__(self):
+        return "bottle_mongo.MongoPlugin(keyword=%r)" % (self.keyword)
+
+    def __repr__(self):
+        return "bottle_mongo.MongoPlugin(keyword=%r)" % (self.keyword)
 
     def normalize_object(self, obj):
         """Normalize mongo object for json serialization."""
