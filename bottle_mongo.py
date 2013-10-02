@@ -58,6 +58,7 @@ class MongoPlugin(object):
     db : Database
     json_mongo : Override Bottle serializer using Mongo one
     keyword : Override parameter name in Bottle function.
+    post_create : Callback function to customize database obj after creation.
 
     This constructor passes any optional parameter of the pymongo
     Connection/MongoClient/MongoReplicaSetClient constructor.
@@ -89,10 +90,15 @@ class MongoPlugin(object):
                 raise PluginError('Cannot authenticate to MongoDB for '
                                   'user: %s' % self.uri_params['username'])
 
+        if self.post_create:
+            db = self.post_create(db)
+
         self.mongo_db = db
+
         return self.mongo_db
 
-    def __init__(self, uri, db, keyword='mongodb', json_mongo=False, **kwargs):
+    def __init__(self, uri, db, keyword='mongodb', json_mongo=False,
+                 post_create=None, **kwargs):
         if not uri:
             raise PluginError("MongoDB uri is required")
 
@@ -110,6 +116,7 @@ class MongoPlugin(object):
         self.json_mongo = json_mongo
         self.mongo_db = None
         self.name = "mongo:" + keyword
+        self.post_create = post_create
 
     def __str__(self):
         return "bottle_mongo.MongoPlugin(keyword=%r)" % (self.keyword)
