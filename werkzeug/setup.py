@@ -35,6 +35,8 @@ setup(
     ],
     classifiers = [
         'Environment :: Web Environment',
+        'Environment :: Plugins',
+        'Framework :: Bottle',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
