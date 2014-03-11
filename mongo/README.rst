@@ -11,7 +11,7 @@ Usage Example:
 .. code-block:: python
 
     from bottle import Bottle ,redirect
-	from bottle.ext.mongo import MongoPlugin
+    from bottle.ext.mongo import MongoPlugin
 
     from bson.json_util import dumps
 
