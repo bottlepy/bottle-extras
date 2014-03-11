@@ -6,6 +6,7 @@
     * bottle.ext.redis
     * bottle.ext.memcache
     * bottle.ext.sqlalchemy
+    * bottle.ext.mongo
 '''
 
 from distutils.core import setup
@@ -27,6 +28,7 @@ setup(
         'bottle_redis',
         'bottle_memcache',
         'bottle_sqlalchemy'
+        'bottle_mongo'
     ],
     classifiers = [
         'Environment :: Web Environment',

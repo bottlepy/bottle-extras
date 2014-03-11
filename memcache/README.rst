@@ -29,7 +29,9 @@ Usage
 
 Once installed to an application, the plugin passes an open
 :class:`memcache.Client` instance to all routes that require an
-``mc`` keyword argument::
+``mc`` keyword argument
+
+.. code-block:: python
 
     import bottle
     import bottle.ext.memcache
@@ -45,6 +47,7 @@ Once installed to an application, the plugin passes an open
             mc.set('item_key', item)
             val = mc.get('item_key')
         return template('showitem', item=val)
+
 
 Routes that do not expect an ``mc`` keyword argument are not affected.
 
