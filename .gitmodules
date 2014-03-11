@@ -1,0 +1,15 @@
+[submodule "memcache"]
+	path = memcache
+	url = git@github.com:bottlepy/bottle-memcache
+[submodule "redis"]
+	path = redis
+	url = git@github.com:bottlepy/bottle-redis
+[submodule "sqlite"]
+	path = sqlite
+	url = git@github.com:bottlepy/bottle-sqlite
+[submodule "werkzeug"]
+	path = werkzeug
+	url = git@github.com:bottlepy/bottle-werkzeug
+[submodule "mongo"]
+	path = mongo
+	url = git@github.com:bottlepy/bottle-mongo
