@@ -31,7 +31,9 @@ Usage
 
 Once installed to an application, the plugin passes an open 
 :class:`sqlite3.Connection` instance to all routes that require a ``db`` keyword 
-argument::
+argument
+
+.. code-block:: python
 
     import bottle
 
@@ -45,6 +47,7 @@ argument::
         if row:
             return template('showitem', page=row)
         return HTTPError(404, "Page not found")
+
 
 Routes that do not expect a ``db`` keyword argument are not affected.
 

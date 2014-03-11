@@ -29,7 +29,9 @@ Usage
 
 Once installed to an application, the plugin passes an open
 :class:`redis.Redis` instance to all routes that require a ``rdb`` keyword
-argument::
+argument
+
+.. code-block:: python
 
     import bottle
 
@@ -43,6 +45,7 @@ argument::
         if row:
             return template('showitem', item=item)
         return HTTPError(404, "Page not found")
+
 
 Routes that do not expect a ``rdb`` keyword argument are not affected.
 

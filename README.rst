@@ -1,4 +1,6 @@
-# Bottle Extras Plugin Collection (beta)
+======================================
+Bottle Extras Plugin Collection (beta)
+======================================
 
 The bottle-extras module depends on all plugins of the bottle-extras
 collection. Installing it vith **pip** or **easy_install** also installs:

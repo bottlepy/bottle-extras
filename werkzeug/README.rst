@@ -37,7 +37,9 @@ Once installed to an application, this plugin adds support for
 provides a thread-local instance of :class:`werkzeug.wrappers.Request` that is
 updated with each request. The plugin instance itself doubles as a werkzeug
 module object, so you don't have to import werkzeug in your application. Here
-is an example::
+is an example
+
+.. code-block:: python
 
     import bottle
 
