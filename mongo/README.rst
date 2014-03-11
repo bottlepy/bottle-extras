@@ -16,17 +16,17 @@ Usage Example:
     from bson.json_util import dumps
 
 
-	app = Bottle()
-	plugin = MongoPlugin(uri="mongodb://127.0.0.1", db="mydb", json_mongo=True)
-	app.install(plugin)
+    app = Bottle()
+    plugin = MongoPlugin(uri="mongodb://127.0.0.1", db="mydb", json_mongo=True)
+    app.install(plugin)
 
-	@app.route('/', method='GET')
-	def index(mongodb):
-		return dumps(mongodb['collection'].find())
+    @app.route('/', method='GET')
+    def index(mongodb):
+        return dumps(mongodb['collection'].find())
 
-	@app.route('/create/', method='POST')
-	def create(mongodb):
-		mongodb['collection'].insert({'a': 1, 'b': 2})
+    @app.route('/create/', method='POST')
+    def create(mongodb):
+        mongodb['collection'].insert({'a': 1, 'b': 2})
         redirect("/")
 
 
