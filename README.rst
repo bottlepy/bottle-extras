@@ -10,3 +10,4 @@ collection. Installing it vith **pip** or **easy_install** also installs:
 * bottle.ext.redis
 * bottle.ext.memcache
 * bottle.ext.sqlalchemy
+* bottle.ext.mongo

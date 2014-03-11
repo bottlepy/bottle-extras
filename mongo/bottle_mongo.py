@@ -12,9 +12,7 @@ This module contains the following public classes:
 
 """
 
-__all__ = [
-    'MongoPlugin',
-    ]
+__all__ = ['MongoPlugin',]
 
 try:
     from json import dumps

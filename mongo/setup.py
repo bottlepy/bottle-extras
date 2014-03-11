@@ -8,9 +8,9 @@ except ImportError:
     from distutils.command.build_py import build_py
 
 setup(
-    name = 'bottle-mongodb',
-    version = '0.2.1.3',
-    url = 'https://github.com/fdouetteau/bottle-mongodb-plugin',
+    name = 'bottle-mongo',
+    version = '0.2.2',
+    url = 'http://github.com/bottlepy/bottle-extras/',
     description = 'MongoDB integration for Bottle',
     author = 'Florian Douetteau',
     author_email = 'florian@douetteau.net',
