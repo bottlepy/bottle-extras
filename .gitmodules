@@ -13,3 +13,6 @@
 [submodule "mongo"]
 	path = mongo
 	url = git@github.com:bottlepy/bottle-mongo
+[submodule "beaker"]
+	path = beaker
+	url = git@github.com:bottlepy/bottle-beaker

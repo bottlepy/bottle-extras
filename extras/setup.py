@@ -6,6 +6,8 @@
     * bottle.ext.redis
     * bottle.ext.memcache
     * bottle.ext.sqlalchemy
+    * bottle.ext.mongo
+    * bottle.ext.beaker
 '''
 
 from distutils.core import setup
@@ -21,12 +23,14 @@ setup(
     license = 'MIT',
     platforms = 'any',
     requires = [
-        'bottle (>=0.9)',
+        'bottle (>=0.12)',
         'bottle_sqlite',
         'bottle_werkzeug',
         'bottle_redis',
         'bottle_memcache',
         'bottle_sqlalchemy'
+        'bottle_mongo',
+        'bottle_beaker'
     ],
     classifiers = [
         'Environment :: Web Environment',
